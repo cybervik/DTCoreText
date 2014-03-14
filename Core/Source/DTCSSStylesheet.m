@@ -413,7 +413,8 @@ extern unsigned int default_css_len;
 
 	shortHand = [styles objectForKey:@"background"];
 
-	if (shortHand)
+	//Pingaala Edit - Vikram Rao
+	if (shortHand && [shortHand respondsToSelector:@selector(stringByTrimmingCharactersInSet:)])
 	{
 		[styles removeObjectForKey:@"background"];
 		NSString *trimmedString = [shortHand stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
